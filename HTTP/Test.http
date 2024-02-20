@@ -1,0 +1,8 @@
+POST http://localhost/RestChercheur/api/aff.php
+Content-Type: application/json
+
+{
+  "NP" : "p07",
+  "NC" : 5,
+  "ANNEE" : 2018
+}
