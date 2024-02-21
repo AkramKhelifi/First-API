@@ -1,0 +1,82 @@
+{
+  "data": [
+    {
+      "NP": "p01",
+      "NOM": "PHC POLONIUM",
+      "BUDGET": "120000.00",
+      "NE": "1"
+    },
+    {
+      "NP": "p02",
+      "NOM": "PNAPI",
+      "BUDGET": "942000.00",
+      "NE": "1"
+    },
+    {
+      "NP": "p03",
+      "NOM": "Pacific-Clouds avec\nCAPES - Bresil",
+      "BUDGET": "20000.00",
+      "NE": "3"
+    },
+    {
+      "NP": "p04",
+      "NOM": "Chipset action COST",
+      "BUDGET": "800000.00",
+      "NE": "1"
+    },
+    {
+      "NP": "p05",
+      "NOM": "QuoVADis",
+      "BUDGET": "745000.00",
+      "NE": "1"
+    },
+    {
+      "NP": "p06",
+      "NOM": "RunMyCode",
+      "BUDGET": "67000.00",
+      "NE": "2"
+    },
+    {
+      "NP": "p07",
+      "NOM": "Brafitec",
+      "BUDGET": "552500.00",
+      "NE": "3"
+    },
+    {
+      "NP": "p08",
+      "NOM": "VIPED",
+      "BUDGET": "900000.00",
+      "NE": "3"
+    },
+    {
+      "NP": "p09",
+      "NOM": "Thomas Jefferson\nFund grant",
+      "BUDGET": "50000.00",
+      "NE": "3"
+    },
+    {
+      "NP": "p10",
+      "NOM": "ANR Franco-Indien",
+      "BUDGET": "560000.00",
+      "NE": "2"
+    },
+    {
+      "NP": "p11",
+      "NOM": "HeartLand",
+      "BUDGET": "400000.00",
+      "NE": "1"
+    },
+    {
+      "NP": "p12",
+      "NOM": "ZAZI",
+      "BUDGET": "20000.00",
+      "NE": "1"
+    },
+    {
+      "NP": "p13",
+      "NOM": "FANTOME",
+      "BUDGET": null,
+      "NE": "1"
+    }
+  ]
+}

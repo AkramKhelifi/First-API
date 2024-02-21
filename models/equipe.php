@@ -84,5 +84,18 @@ class Equipe
         }
         return false;
     }
+
+    // Méthode pour récupérer les équipes et le nombre de projets qui leur appartiennent
+    public function readTeamsAndProjectCount() {
+        $query = "SELECT equipe.NOM, COUNT(projet.NE) as nombre_projets 
+                  FROM " . $this->table_name . " 
+                  LEFT JOIN projet ON equipe.NE = projet.NE 
+                  GROUP BY equipe.NOM";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+
 }
 

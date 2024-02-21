@@ -21,23 +21,52 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {
     case 'GET':
-        // Récupérer toutes les équipes ou une équipe spécifique
-        $stmt = $equipe->read();
-        $num = $stmt->rowCount();
+        // Récupérer le paramètre d'action, s'il est présent
+        $action = isset($_GET['action']) ? $_GET['action'] : '';
 
-        if ($num > 0) {
-            $equipes_arr = array();
-            $equipes_arr["data"] = array();
+        if ($action === 'teamProjectCount') {
+            // Appeler la méthode pour récupérer les équipes et le nombre de projets qui leur appartiennent
+            $stmt = $equipe->readTeamsAndProjectCount(); // Assurez-vous que cette méthode est implémentée dans votre classe Equipe
+            $num = $stmt->rowCount();
 
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                array_push($equipes_arr["data"], $row);
+            if ($num > 0) {
+                $equipes_projets_arr = array();
+                $equipes_projets_arr["data"] = array();
+
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    $equipe_item = array(
+                        "NOM" => $row['NOM'],
+                        "nombre_projets" => $row['nombre_projets']
+                    );
+
+                    array_push($equipes_projets_arr["data"], $equipe_item);
+                }
+
+                http_response_code(200);
+                echo json_encode($equipes_projets_arr);
+            } else {
+                http_response_code(404);
+                echo json_encode(array("message" => "Aucune équipe trouvée."));
             }
-
-            http_response_code(200);
-            echo json_encode($equipes_arr);
         } else {
-            http_response_code(404);
-            echo json_encode(array("message" => "Aucune équipe trouvée."));
+            // Récupérer toutes les équipes ou une équipe spécifique
+            $stmt = $equipe->read(); // La méthode read() doit être définie dans votre classe Equipe pour récupérer toutes les équipes
+            $num = $stmt->rowCount();
+
+            if ($num > 0) {
+                $equipes_arr = array();
+                $equipes_arr["data"] = array();
+
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    array_push($equipes_arr["data"], $row);
+                }
+
+                http_response_code(200);
+                echo json_encode($equipes_arr);
+            } else {
+                http_response_code(404);
+                echo json_encode(array("message" => "Aucune équipe trouvée."));
+            }
         }
         break;
 

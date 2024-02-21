@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "NOM": "WEB Intelligence",
+      "nombre_projets": "7"
+    },
+    {
+      "NOM": "BIG DATA",
+      "nombre_projets": "2"
+    },
+    {
+      "NOM": "Objets connectes",
+      "nombre_projets": "4"
+    },
+    {
+      "NOM": "Cloud computing",
+      "nombre_projets": "0"
+    }
+  ]
+}

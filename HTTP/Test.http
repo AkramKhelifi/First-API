@@ -1,8 +1,2 @@
-POST http://localhost/RestChercheur/api/aff.php
+GET http://localhost/RestChercheur/api/equipe.php?action=teamProjectCount
 Content-Type: application/json
-
-{
-  "NP" : "p07",
-  "NC" : 5,
-  "ANNEE" : 2018
-}

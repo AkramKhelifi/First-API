@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "NE": "1",
+      "NOM": "WEB Intelligence"
+    },
+    {
+      "NE": "2",
+      "NOM": "BIG DATA"
+    },
+    {
+      "NE": "3",
+      "NOM": "Objets connectes"
+    },
+    {
+      "NE": "4",
+      "NOM": "Cloud computing"
+    }
+  ]
+}

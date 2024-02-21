@@ -89,5 +89,21 @@ class Projet {
         }
         return false;
     }
+
+    public function getUniqueBudgets() {
+        $query = "SELECT DISTINCT BUDGET FROM " . $this->table_name . " WHERE BUDGET IS NOT NULL ORDER BY BUDGET DESC";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+
+    public function getBySpecificBudgetRange() {
+        $query = "SELECT * FROM " . $this->table_name . " WHERE BUDGET BETWEEN 400000 AND 900000";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+
+
 }
 

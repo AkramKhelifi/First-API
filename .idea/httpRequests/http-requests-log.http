@@ -1,0 +1,140 @@
+GET http://localhost/RestChercheur/api/equipe.php?action=teamProjectCount
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-02-21T192652.200.json
+
+###
+
+GET http://localhost/RestChercheur/api/equipe.php
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-02-21T192641.200.json
+
+###
+
+GET http://localhost/RestChercheur/api/equipe.php
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-02-21T192636.200.json
+
+###
+
+GET http://localhost/RestChercheur/api/equipe.php?action=teamProjectCount
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-02-21T192621.200.json
+
+###
+
+GET http://localhost/RestChercheur/api/equipe.php?action=teamProjectCount
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-02-21T192408.200.json
+
+###
+
+GET http://localhost/RestChercheur/api/chercheur.php?action=withTeam
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-02-21T190824.200.json
+
+###
+
+GET http://localhost/RestChercheur/api/projet.php?action=specificBudgetRange
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-02-21T184246.200.json
+
+###
+
+GET http://localhost/RestChercheur/api/projet.php?action=specificBudgetRange
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-02-21T184008.200.json
+
+###
+
+GET http://localhost/RestChercheur/api/projet.php
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-02-21T183946.200.json
+
+###
+
+GET http://localhost/RestChercheur/api/projet.php?action=budgets
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-02-21T183940.200.json
+
+###
+
+GET http://localhost/RestChercheur/api/projet.php?action=budgets
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-02-21T182611.200.json
+
+###
+
+GET http://localhost/RestChercheur/api/projet.php?action=budget
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-02-21T182557.200.json
+
+###
+
+GET http://localhost/RestChercheur/api/projet.php?action=budget
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-02-21T182539.200.json
+
+###
+
+GET http://localhost/RestChercheur/api/projet.php
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-02-21T182423.200.json
+
+###
+

@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "NP": "p04",
+      "NOM": "Chipset action COST",
+      "BUDGET": "800000.00",
+      "NE": "1"
+    },
+    {
+      "NP": "p05",
+      "NOM": "QuoVADis",
+      "BUDGET": "745000.00",
+      "NE": "1"
+    },
+    {
+      "NP": "p07",
+      "NOM": "Brafitec",
+      "BUDGET": "552500.00",
+      "NE": "3"
+    },
+    {
+      "NP": "p08",
+      "NOM": "VIPED",
+      "BUDGET": "900000.00",
+      "NE": "3"
+    },
+    {
+      "NP": "p10",
+      "NOM": "ANR Franco-Indien",
+      "BUDGET": "560000.00",
+      "NE": "2"
+    },
+    {
+      "NP": "p11",
+      "NOM": "HeartLand",
+      "BUDGET": "400000.00",
+      "NE": "1"
+    }
+  ]
+}

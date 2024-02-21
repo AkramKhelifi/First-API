@@ -20,23 +20,66 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {
     case 'GET':
-        // Lire les projets
-        $stmt = $projet->read();
-        $num = $stmt->rowCount();
+        // Vérifier si un paramètre d'action spécifique est fourni
+        $action = isset($_GET['action']) ? $_GET['action'] : '';
 
-        if ($num > 0) {
-            $projets_arr = array();
-            $projets_arr["data"] = array();
+        if ($action === 'budgets') {
+            // Logique pour récupérer les budgets uniques
+            $stmt = $projet->getUniqueBudgets();
+            $num = $stmt->rowCount();
 
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                array_push($projets_arr["data"], $row);
+            if ($num > 0) {
+                $budgets_arr = array();
+                $budgets_arr["data"] = array();
+
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    array_push($budgets_arr["data"], $row['BUDGET']);
+                }
+
+                http_response_code(200);
+                echo json_encode($budgets_arr);
+            } else {
+                http_response_code(404);
+                echo json_encode(array("message" => "Aucun budget trouvé."));
             }
+        } elseif ($action === 'specificBudgetRange') {
+            // Nouvelle logique pour récupérer les projets par plage de budget spécifique
+            $stmt = $projet->getBySpecificBudgetRange();
+            $num = $stmt->rowCount();
 
-            http_response_code(200);
-            echo json_encode($projets_arr);
+            if ($num > 0) {
+                $projets_arr = array();
+                $projets_arr["data"] = array();
+
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    array_push($projets_arr["data"], $row);
+                }
+
+                http_response_code(200);
+                echo json_encode($projets_arr);
+            } else {
+                http_response_code(404);
+                echo json_encode(array("message" => "Aucun projet trouvé dans cette plage de budget."));
+            }
         } else {
-            http_response_code(404);
-            echo json_encode(array("message" => "Aucun projet trouvé."));
+            // Logique pour lire tous les projets
+            $stmt = $projet->read();
+            $num = $stmt->rowCount();
+
+            if ($num > 0) {
+                $projets_arr = array();
+                $projets_arr["data"] = array();
+
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    array_push($projets_arr["data"], $row);
+                }
+
+                http_response_code(200);
+                echo json_encode($projets_arr);
+            } else {
+                http_response_code(404);
+                echo json_encode(array("message" => "Aucun projet trouvé."));
+            }
         }
         break;
 

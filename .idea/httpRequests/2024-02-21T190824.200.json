@@ -1,0 +1,88 @@
+{
+  "data": [
+    {
+      "NC": "1",
+      "NOM": "BOUGUEROUA",
+      "PRENOM": "Lamine",
+      "NOM_EQUIPE": "WEB Intelligence"
+    },
+    {
+      "NC": "2",
+      "NOM": "WOLSKA",
+      "PRENOM": "Kasia",
+      "NOM_EQUIPE": "WEB Intelligence"
+    },
+    {
+      "NC": "9",
+      "NOM": "NAHLE",
+      "PRENOM": "Salim",
+      "NOM_EQUIPE": "WEB Intelligence"
+    },
+    {
+      "NC": "12",
+      "NOM": "FLASQUE",
+      "PRENOM": "Nicolas",
+      "NOM_EQUIPE": "WEB Intelligence"
+    },
+    {
+      "NC": "3",
+      "NOM": "CHARROUX",
+      "PRENOM": "Benoit",
+      "NOM_EQUIPE": "BIG DATA"
+    },
+    {
+      "NC": "4",
+      "NOM": "SLIMAN",
+      "PRENOM": "Layth",
+      "NOM_EQUIPE": "BIG DATA"
+    },
+    {
+      "NC": "10",
+      "NOM": "NEGGAZ",
+      "PRENOM": "Yessin",
+      "NOM_EQUIPE": "BIG DATA"
+    },
+    {
+      "NC": "11",
+      "NOM": "OCHI",
+      "PRENOM": "Hanen",
+      "NOM_EQUIPE": "BIG DATA"
+    },
+    {
+      "NC": "5",
+      "NOM": "HUET",
+      "PRENOM": "Jean-Charles",
+      "NOM_EQUIPE": "Objets connectes"
+    },
+    {
+      "NC": "6",
+      "NOM": "COLIN",
+      "PRENOM": "Elizabeth",
+      "NOM_EQUIPE": "Objets connectes"
+    },
+    {
+      "NC": "7",
+      "NOM": "MARECHAL",
+      "PRENOM": "Catherine",
+      "NOM_EQUIPE": "Objets connectes"
+    },
+    {
+      "NC": "8",
+      "NOM": "VIEIRA",
+      "PRENOM": "Dario",
+      "NOM_EQUIPE": "Objets connectes"
+    },
+    {
+      "NC": "13",
+      "NOM": "RODRIGUES",
+      "PRENOM": "Christiano",
+      "NOM_EQUIPE": "Objets connectes"
+    },
+    {
+      "NC": "14",
+      "NOM": "POISON",
+      "PRENOM": "MONCADA",
+      "NOM_EQUIPE": "Cloud computing"
+    }
+  ]
+}

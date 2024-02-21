@@ -20,8 +20,17 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {
     case 'GET':
-        // Récupérer tous les chercheurs ou un chercheur spécifique
-        $stmt = $chercheur->read();
+        // Récupérer le paramètre d'action, s'il est présent
+        $action = isset($_GET['action']) ? $_GET['action'] : '';
+
+        if ($action === 'withTeam') {
+            // Appeler la méthode readWithTeam pour récupérer les chercheurs et le nom de leur équipe
+            $stmt = $chercheur->readWithTeam();
+        } else {
+            // Comportement par défaut : récupérer tous les chercheurs sans nom d'équipe
+            $stmt = $chercheur->read();
+        }
+
         $num = $stmt->rowCount();
 
         if ($num > 0) {
@@ -29,13 +38,21 @@ switch ($method) {
             $chercheurs_arr["data"] = array();
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                extract($row);
-                $chercheur_item = array(
-                    "NC" => $NC,
-                    "NOM" => $NOM,
-                    "PRENOM" => $PRENOM,
-                    "NE" => $NE
-                );
+                if ($action === 'withTeam') {
+                    $chercheur_item = array(
+                        "NC" => $row['NC'],
+                        "NOM" => $row['NOM'],
+                        "PRENOM" => $row['PRENOM'],
+                        "NOM_EQUIPE" => $row['NOM_EQUIPE'] // Nom de l'équipe pour l'action withTeam
+                    );
+                } else {
+                    $chercheur_item = array(
+                        "NC" => $row['NC'],
+                        "NOM" => $row['NOM'],
+                        "PRENOM" => $row['PRENOM'],
+                        "NE" => $row['NE']
+                    );
+                }
 
                 array_push($chercheurs_arr["data"], $chercheur_item);
             }

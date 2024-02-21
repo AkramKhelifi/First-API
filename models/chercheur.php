@@ -113,6 +113,17 @@ class Chercheur
 
         return false;
     }
+
+    public function readWithTeam() {
+        $query = "SELECT chercheur.NC, chercheur.NOM, chercheur.PRENOM, equipe.NOM as NOM_EQUIPE 
+              FROM " . $this->table_name . " 
+              JOIN equipe ON chercheur.NE = equipe.NE";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+
 }
 
 
