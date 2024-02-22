@@ -20,6 +20,8 @@ switch ($method) {
 
         if ($action === 'withTeam') {
             $stmt = $chercheur->readWithTeam();
+        } elseif ($action === 'qualifiedResearchers') {
+            $stmt = $chercheur->readQualifiedResearchers();
         } else {
             $stmt = $chercheur->read();
         }
@@ -37,6 +39,11 @@ switch ($method) {
                         "NOM" => $row['NOM'],
                         "PRENOM" => $row['PRENOM'],
                         "NOM_EQUIPE" => $row['NOM_EQUIPE']
+                    );
+                } elseif ($action === 'qualifiedResearchers') {
+                    $chercheur_item = array(
+                        "nom" => $row['nom'],
+                        "prenom" => $row['prenom']
                     );
                 } else {
                     $chercheur_item = array(
@@ -57,6 +64,7 @@ switch ($method) {
             echo json_encode(array("message" => "Aucun chercheur trouvé."));
         }
         break;
+
 
     case 'POST':
         $data = json_decode(file_get_contents("php://input"));

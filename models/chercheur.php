@@ -98,6 +98,13 @@ class Chercheur
         $stmt->execute();
         return $stmt;
     }
+public function readQualifiedResearchers() {
+    $query = "SELECT nom, prenom FROM req5";
+
+    $stmt = $this->conn->prepare($query);
+    $stmt->execute();
+    return $stmt;
+}
 
 }
 
