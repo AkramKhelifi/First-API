@@ -1,10 +1,8 @@
 <?php
 class Projet {
-    // Connexion à la base de données et nom de la table
     private $conn;
     private $table_name = "projet";
 
-    // Propriétés de l'objet Projet correspondant aux colonnes de la table
     public $NP;
     public $NOM;
     public $BUDGET;
@@ -14,7 +12,6 @@ class Projet {
         $this->conn = $db;
     }
 
-    // Lire tous les projets
     public function read() {
         $query = "SELECT * FROM " . $this->table_name;
         $stmt = $this->conn->prepare($query);
@@ -22,19 +19,16 @@ class Projet {
         return $stmt;
     }
 
-    // Créer un nouveau projet
     public function create() {
         $query = "INSERT INTO " . $this->table_name . " SET NP=:NP, NOM=:NOM, BUDGET=:BUDGET, NE=:NE";
 
         $stmt = $this->conn->prepare($query);
 
-        // Nettoyer les données
         $this->NP=htmlspecialchars(strip_tags($this->NP));
         $this->NOM=htmlspecialchars(strip_tags($this->NOM));
         $this->BUDGET=htmlspecialchars(strip_tags($this->BUDGET));
         $this->NE=htmlspecialchars(strip_tags($this->NE));
 
-        // Lier les valeurs
         $stmt->bindParam(":NP", $this->NP);
         $stmt->bindParam(":NOM", $this->NOM);
         $stmt->bindParam(":BUDGET", $this->BUDGET);
@@ -46,7 +40,6 @@ class Projet {
         return false;
     }
 
-    // Mettre à jour un projet
     public function update() {
         $query = "UPDATE " . $this->table_name . " 
                   SET NOM=:NOM, BUDGET=:BUDGET, NE=:NE 
@@ -54,13 +47,11 @@ class Projet {
 
         $stmt = $this->conn->prepare($query);
 
-        // Nettoyer les données
         $this->NP=htmlspecialchars(strip_tags($this->NP));
         $this->NOM=htmlspecialchars(strip_tags($this->NOM));
         $this->BUDGET=htmlspecialchars(strip_tags($this->BUDGET));
         $this->NE=htmlspecialchars(strip_tags($this->NE));
 
-        // Lier les valeurs
         $stmt->bindParam(":NP", $this->NP);
         $stmt->bindParam(":NOM", $this->NOM);
         $stmt->bindParam(":BUDGET", $this->BUDGET);
@@ -72,16 +63,13 @@ class Projet {
         return false;
     }
 
-    // Supprimer un projet
     public function delete() {
         $query = "DELETE FROM " . $this->table_name . " WHERE NP=:NP";
 
         $stmt = $this->conn->prepare($query);
 
-        // Nettoyer les données
         $this->NP=htmlspecialchars(strip_tags($this->NP));
 
-        // Lier la valeur
         $stmt->bindParam(":NP", $this->NP);
 
         if ($stmt->execute()) {

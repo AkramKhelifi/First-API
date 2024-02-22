@@ -1,3 +1,23 @@
+GET http://localhost/RestChercheur/api/chercheur.php?action=getQualifiedResearchers
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-02-22T185149.200.json
+
+###
+
+GET http://localhost/RestChercheur/api/chercheur.php?action=getQualifiedResearchers
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-02-22T184847.200.json
+
+###
+
 GET http://localhost/RestChercheur/api/equipe.php?action=teamProjectCount
 Content-Type: application/json
 Connection: Keep-Alive

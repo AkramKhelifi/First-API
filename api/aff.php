@@ -1,26 +1,21 @@
 <?php
-// Headers requis
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-// Inclure les fichiers de base de données et du modèle
 include_once '../config/Database.php';
 include_once '../models/aff.php';
 
-// Instanciation de la base de données et de l'objet Aff
 $database = new Database();
 $db = $database->getConnection();
 
 $aff = new Aff($db);
 
-// Obtenir la méthode de la requête HTTP
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {
     case 'GET':
-        // Lire les affiliations
         $stmt = $aff->read();
         $num = $stmt->rowCount();
 
@@ -41,7 +36,6 @@ switch ($method) {
         break;
 
     case 'POST':
-        // Créer une nouvelle affiliation
         $data = json_decode(file_get_contents("php://input"));
 
         if (!empty($data->NP) && !empty($data->NC) && !empty($data->ANNEE)) {
@@ -63,7 +57,6 @@ switch ($method) {
         break;
 
     case 'PUT':
-        // Mettre à jour une affiliation existante
         $data = json_decode(file_get_contents("php://input"));
 
         if (!empty($data->NP) && !empty($data->NC)) {
@@ -85,7 +78,6 @@ switch ($method) {
         break;
 
     case 'DELETE':
-        // Supprimer une affiliation
         $data = json_decode(file_get_contents("php://input"));
 
         if (!empty($data->NP) && !empty($data->NC)) {
@@ -106,9 +98,8 @@ switch ($method) {
         break;
 
     default:
-        // Gérer les méthodes non prises en charge
         http_response_code(405);
         echo json_encode(array("message" => "Méthode non autorisée."));
         break;
 }
-
+?>

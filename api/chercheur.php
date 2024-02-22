@@ -1,33 +1,26 @@
 <?php
-// Headers requis pour une API
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-// Inclure les fichiers nécessaires
 include_once '../config/Database.php';
 include_once '../models/chercheur.php';
 
-// Instancier la base de données et le modèle chercheur
 $database = new Database();
 $db = $database->getConnection();
 
 $chercheur = new Chercheur($db);
 
-// Obtenir la méthode de la requête
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {
     case 'GET':
-        // Récupérer le paramètre d'action, s'il est présent
         $action = isset($_GET['action']) ? $_GET['action'] : '';
 
         if ($action === 'withTeam') {
-            // Appeler la méthode readWithTeam pour récupérer les chercheurs et le nom de leur équipe
             $stmt = $chercheur->readWithTeam();
         } else {
-            // Comportement par défaut : récupérer tous les chercheurs sans nom d'équipe
             $stmt = $chercheur->read();
         }
 
@@ -43,7 +36,7 @@ switch ($method) {
                         "NC" => $row['NC'],
                         "NOM" => $row['NOM'],
                         "PRENOM" => $row['PRENOM'],
-                        "NOM_EQUIPE" => $row['NOM_EQUIPE'] // Nom de l'équipe pour l'action withTeam
+                        "NOM_EQUIPE" => $row['NOM_EQUIPE']
                     );
                 } else {
                     $chercheur_item = array(
@@ -66,7 +59,6 @@ switch ($method) {
         break;
 
     case 'POST':
-        // Créer un nouveau chercheur
         $data = json_decode(file_get_contents("php://input"));
 
         if (!empty($data->NOM) && !empty($data->PRENOM) && isset($data->NE) && isset($data->NC)) {
@@ -89,7 +81,6 @@ switch ($method) {
         break;
 
     case 'PUT':
-        // Mettre à jour un chercheur existant
         $data = json_decode(file_get_contents("php://input"));
 
         if (!empty($data->NC)) {
@@ -112,7 +103,6 @@ switch ($method) {
         break;
 
     case 'DELETE':
-        // Supprimer un chercheur
         $data = json_decode(file_get_contents("php://input"));
 
         if (!empty($data->NC)) {
@@ -132,7 +122,6 @@ switch ($method) {
         break;
 
     default:
-        // Gérer les méthodes non prises en charge
         http_response_code(405);
         echo json_encode(array("message" => "Méthode non autorisée."));
         break;

@@ -1,30 +1,24 @@
 <?php
-// Headers requis pour une API REST
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-// Inclure les fichiers de configuration de la base de données et du modèle Projet
 include_once '../config/Database.php';
 include_once '../models/projet.php';
 
-// Instanciation de la base de données et de l'objet projet
 $database = new Database();
 $db = $database->getConnection();
 
 $projet = new Projet($db);
 
-// Obtenir la méthode de la requête HTTP
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {
     case 'GET':
-        // Vérifier si un paramètre d'action spécifique est fourni
         $action = isset($_GET['action']) ? $_GET['action'] : '';
 
         if ($action === 'budgets') {
-            // Logique pour récupérer les budgets uniques
             $stmt = $projet->getUniqueBudgets();
             $num = $stmt->rowCount();
 
@@ -43,7 +37,6 @@ switch ($method) {
                 echo json_encode(array("message" => "Aucun budget trouvé."));
             }
         } elseif ($action === 'specificBudgetRange') {
-            // Nouvelle logique pour récupérer les projets par plage de budget spécifique
             $stmt = $projet->getBySpecificBudgetRange();
             $num = $stmt->rowCount();
 
@@ -62,7 +55,6 @@ switch ($method) {
                 echo json_encode(array("message" => "Aucun projet trouvé dans cette plage de budget."));
             }
         } else {
-            // Logique pour lire tous les projets
             $stmt = $projet->read();
             $num = $stmt->rowCount();
 
@@ -84,7 +76,6 @@ switch ($method) {
         break;
 
     case 'POST':
-        // Créer un nouveau projet
         $data = json_decode(file_get_contents("php://input"));
 
         if (!empty($data->NOM) && isset($data->BUDGET) && isset($data->NE)) {
@@ -106,7 +97,6 @@ switch ($method) {
         break;
 
     case 'PUT':
-        // Mettre à jour un projet existant
         $data = json_decode(file_get_contents("php://input"));
 
         if (!empty($data->NP)) {
@@ -129,7 +119,6 @@ switch ($method) {
         break;
 
     case 'DELETE':
-        // Supprimer un projet
         $data = json_decode(file_get_contents("php://input"));
 
         if (!empty($data->NP)) {
@@ -149,7 +138,6 @@ switch ($method) {
         break;
 
     default:
-        // Gérer les méthodes non prises en charge
         http_response_code(405);
         echo json_encode(array("message" => "Méthode non autorisée."));
         break;

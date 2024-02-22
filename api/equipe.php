@@ -1,32 +1,26 @@
 <?php
 
-// Headers requis
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-// Inclure les fichiers de configuration de la base de données et du modèle
 include_once '../config/Database.php';
 include_once '../models/equipe.php';
 
-// Instanciation de la base de données et de l'objet équipe
 $database = new Database();
 $db = $database->getConnection();
 
 $equipe = new Equipe($db);
 
-// Obtenir la méthode de la requête HTTP
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {
     case 'GET':
-        // Récupérer le paramètre d'action, s'il est présent
         $action = isset($_GET['action']) ? $_GET['action'] : '';
 
         if ($action === 'teamProjectCount') {
-            // Appeler la méthode pour récupérer les équipes et le nombre de projets qui leur appartiennent
-            $stmt = $equipe->readTeamsAndProjectCount(); // Assurez-vous que cette méthode est implémentée dans votre classe Equipe
+            $stmt = $equipe->readTeamsAndProjectCount();
             $num = $stmt->rowCount();
 
             if ($num > 0) {
@@ -49,8 +43,7 @@ switch ($method) {
                 echo json_encode(array("message" => "Aucune équipe trouvée."));
             }
         } else {
-            // Récupérer toutes les équipes ou une équipe spécifique
-            $stmt = $equipe->read(); // La méthode read() doit être définie dans votre classe Equipe pour récupérer toutes les équipes
+            $stmt = $equipe->read();
             $num = $stmt->rowCount();
 
             if ($num > 0) {
@@ -71,7 +64,6 @@ switch ($method) {
         break;
 
     case 'POST':
-        // Créer une nouvelle équipe
         $data = json_decode(file_get_contents("php://input"));
 
         if (!empty($data->NOM)) {
@@ -91,7 +83,6 @@ switch ($method) {
         break;
 
     case 'PUT':
-        // Mettre à jour une équipe existante
         $data = json_decode(file_get_contents("php://input"));
 
         if (!empty($data->NE) && !empty($data->NOM)) {
@@ -112,7 +103,6 @@ switch ($method) {
         break;
 
     case 'DELETE':
-        // Supprimer une équipe
         $data = json_decode(file_get_contents("php://input"));
 
         if (!empty($data->NE)) {
@@ -132,7 +122,6 @@ switch ($method) {
         break;
 
     default:
-        // Gérer les méthodes non prises en charge
         http_response_code(405);
         echo json_encode(array("message" => "Méthode non autorisée."));
         break;
